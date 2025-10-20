@@ -1,8 +1,9 @@
 import pytest
-from src.app import app, db, Task
+from src.app import create_app, db, Task
 
 @pytest.fixture
 def client():
+    app = create_app()
     app.config['TESTING'] = True
     with app.app_context():
         db.create_all()
