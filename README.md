@@ -10,10 +10,9 @@ Desenvolver um sistema básico de gerenciamento de tarefas usando metodologia á
 - Testar funcionalidades automaticamente
 
 ---
-
+````
 ## 📦 Estrutura do Projeto
-```
-
+````
 techflow-agile-task-manager/
 │
 ├── src/
@@ -33,8 +32,6 @@ techflow-agile-task-manager/
 │ └── workflows/
 │ └── python-tests.yml
 └── README.md
-
-````
 
 ---
 
