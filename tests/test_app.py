@@ -1,5 +1,5 @@
 import pytest
-from src.app import app, db, Task  # agora existe src/
+from src.app import app, db, Task
 
 @pytest.fixture
 def client():
