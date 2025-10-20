@@ -3,12 +3,11 @@ from src.app import create_app, db, Task
 
 @pytest.fixture
 def client():
-    app = create_app()
-    app.config['TESTING'] = True
+    app = create_app({'TESTING': True, 'SQLALCHEMY_DATABASE_URI': 'sqlite:///:memory:'})
     with app.app_context():
-        db.create_all()
+        db.create_all()  # cria tabelas explicitamente
         yield app.test_client()
-        db.drop_all()
+        db.drop_all()  # limpa após o teste
 
 def test_create_task(client):
     response = client.post('/tasks', json={'title': 'Test Task'})
