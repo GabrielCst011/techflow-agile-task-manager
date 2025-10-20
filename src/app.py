@@ -1,6 +1,5 @@
 from flask import Flask, jsonify, request
-from app import app, db, Task
-
+from models import db, Task 
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tasks.db'
