@@ -1,14 +1,17 @@
 from flask import Flask, jsonify, request
 from models import db, Task
 
+# Cria a instância do Flask apenas aqui
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tasks.db'
 db.init_app(app)
 
+# Cria as tabelas antes da primeira requisição
 @app.before_first_request
 def create_tables():
     db.create_all()
 
+# CRUD de tarefas
 @app.route('/tasks', methods=['GET'])
 def get_tasks():
     tasks = Task.query.all()
